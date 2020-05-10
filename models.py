@@ -1,3 +1,6 @@
+import torch.nn as nn
+import torchvision
+
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
@@ -19,5 +22,5 @@ class Net(nn.Module):
         x = self.fc2(x)
         return x
 
-class torch_models(num):
+def torch_models(args,num):
     return getattr(torchvision.models, args.model)(num_classes = num)

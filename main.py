@@ -8,6 +8,7 @@ from torchvision import datasets, transforms
 from tqdm import tqdm
 from training import train
 from testing import test
+from models import torch_models
 import argparse
 from args import parser
 
@@ -54,9 +55,9 @@ def main():
 
     if(args.model == "MobileNetV2"):
         if(dataset == "CIFAR10"):
-            net = torchvision.models.MobileNetV2(num_classes=10)
+            net = torch_models(args,10)
         if(dataset == "CIFAR100"):
-            net = torchvision.models.MobileNetV2(num_classes=100)
+            net = torch_models(args,100)
         
     
     optimizer = optim.SGD(net.parameters(),lr=0.01)
